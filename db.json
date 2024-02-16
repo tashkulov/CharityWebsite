@@ -1,0 +1,43 @@
+{
+  "name": [
+    {
+      "id": "2e0d",
+      "firstName": "Рустам",
+      "lastName": "Кежебеков",
+      "age": "14",
+      "state": "Россия",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "genomicProfiling",
+      "diagnosis": "SpinalDeformity",
+      "needMoney": "150000"
+    },
+    {
+      "id": "f675",
+      "firstName": "Нурис",
+      "lastName": "Ташкулов",
+      "age": "7",
+      "state": "Кг",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "surgicalTreatment",
+      "diagnosis": "SpinalDeformity",
+      "needMoney": 500000
+    },
+    {
+      "id": "0012",
+      "firstName": "Айдар",
+      "lastName": "Алымбеков",
+      "age": "5",
+      "state": "Кг",
+      "city": "Bishkek",
+      "street": "МоссСовет",
+      "zip": "720085",
+      "needed": "targetedTherapy",
+      "diagnosis": "Dota2",
+      "needMoney": "400000000"
+    }
+  ]
+}

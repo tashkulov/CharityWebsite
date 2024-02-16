@@ -1,0 +1,28 @@
+.button-container {
+    display: flex;
+    gap: 10px; /* Задает промежуток между кнопками */
+}
+.useful-button {
+    /* Стили для кнопки */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.useful-button:hover {
+    background-color: #0056b3;
+}
+
+.useful-button:focus {
+    outline: none;
+}
+
+.useful-button:active {
+    background-color: #0056b3;
+}
