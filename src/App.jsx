@@ -1,12 +1,13 @@
-import MainNeedHelpPageForm from "./NeedHelpPage/MainNeedHelpPageForm.jsx";
 import {BrowserRouter, Link, Route, Routes, Outlet} from 'react-router-dom';
-import Cardiology from "./NeedHelpPage/PageForDiseases/Cardiology.jsx";
-import DeformationsOfSystem from "./NeedHelpPage/PageForDiseases/DeformationsOfSystem.jsx";
-import Dota2 from "./NeedHelpPage/PageForDiseases/Dota2.jsx";
-import GenomicProfiling from "./NeedHelpPage/PageForDiseases/GenomicProfiling.jsx";
-import SpinalDeformity from "./NeedHelpPage/PageForDiseases/SpinalDeformity.jsx";
-import SurgicalTreatment from "./NeedHelpPage/PageForDiseases/SurgicalTreatment.jsx";
-import MainWantToHelp from "./WantToHelp/MainWantToHelp.jsx";
+import MainWantToHelp from "./pages/WantToHelp/MainWantToHelp.jsx";
+import MainNeedHelpPageForm from "./pages/NeedHelpPage/MainNeedHelpPageForm.jsx";
+import React from "react";
+import Cardiology from "./entities/PageForDiseases/Cardiology.jsx";
+import DeformationsOfSystem from "./entities/PageForDiseases/DeformationsOfSystem.jsx";
+import Dota2 from "./entities/PageForDiseases/Dota2.jsx";
+import GenomicProfiling from "./entities/PageForDiseases/GenomicProfiling.jsx";
+import SpinalDeformity from "./entities/PageForDiseases/SpinalDeformity.jsx";
+import SurgicalTreatment from "./entities/PageForDiseases/SurgicalTreatment.jsx";
 
 function App() {
     return (

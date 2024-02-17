@@ -38,6 +38,19 @@
       "needed": "targetedTherapy",
       "diagnosis": "Dota2",
       "needMoney": "400000000"
+    },
+    {
+      "id": "533e",
+      "firstName": "Ямато ",
+      "lastName": "Тахарами",
+      "age": "12",
+      "state": "Япония",
+      "city": "Нара",
+      "street": "Хуй там",
+      "zip": "323523",
+      "needed": "surgicalTreatment",
+      "diagnosis": "DeformationsOfSystem",
+      "needMoney": "12452346"
     }
   ]
 }

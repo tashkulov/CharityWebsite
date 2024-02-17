@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import NeedHelpPage from "./MultipleStepForm/NeedHelpPage.jsx";
+import NeedHelpPage from "../../features/MultipleStepForm/NeedHelpPage.jsx";
 import axios from "axios";
-import UsefullButtonForLink from "./shared/ui/UsefullButtonForLink.jsx";
+import UsefullButtonForLink from "../../shared/ui/Button/UsefullButtonForLink.jsx";
 import {Link} from "react-router-dom";
+import Form from "../../shared/ui/Form/Form.jsx";
 
 
 
@@ -41,6 +42,8 @@ const MainNeedHelpPageForm = () => {
                 <UsefullButtonForLink to={'/GenomicProfiling'} text={"GenomicProfiling"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SpinalDeformity'} text={"SpinalDeformity"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SurgicalTreatment'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
+
+        <Form/>
         </div>
     );
 };
