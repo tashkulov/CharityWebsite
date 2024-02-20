@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
-import {useMultiStepForm} from "./useMultiStepForm.js";
+import React, { useState } from 'react';
+import { useMultiStepForm } from "./useMultiStepForm.js";
 import ChildForm from "./UserForm.jsx";
 import AddressForm from "./AdressForm.jsx";
 import TreatmentForm from "./TreatmentForm.jsx";
+import Button from '@mui/material/Button';
+import { Dialog, Slide } from "@mui/material";
+import {submitDataToServer} from "../../app/store/store.js";
 
 const INITIAL_DATA = {
     firstName: "",
@@ -15,13 +17,13 @@ const INITIAL_DATA = {
     zip: "",
     needed: "",
     diagnosis: "",
-    needMoney:0
-}
-
-
+    needMoney: 0,
+    leftMoney: 0 
+};
 
 function NeedHelpPage() {
     const [data, setData] = useState(INITIAL_DATA);
+    const [open, setOpen] = useState(false);
 
     function updateFields(fields) {
         setData(prev => {
@@ -36,64 +38,48 @@ function NeedHelpPage() {
             <TreatmentForm {...data} updateFields={updateFields} />,
         ]);
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
         e.preventDefault();
         if (!isLastStep) return next();
 
-        axios.post(`http://localhost:5000/name`, data)
-            .then(response => {
-                console.log("Data submitted successfully:", response.data);
-                setData(INITIAL_DATA);
-            })
-            .catch(error => {
-                console.error("Error submitting data:", error);
-            });
+        try {
+            await submitDataToServer(data);
+            console.log("Data submitted successfully");
+            setData(INITIAL_DATA);
+            setOpen(true);
+        } catch (error) {
+            console.error("Error submitting data:", error.message);
+        }
     }
 
-
-
+    const toggleModal = () => {
+        setOpen(state => !state);
+    };
 
     return (
-        <div
-            style={{
-                position: "relative",
-                background: "white",
-                border: "1px solid black",
-                padding: "2rem",
-                margin: "1rem",
-                borderRadius: ".5rem",
-                fontFamily: "Arial",
-                maxWidth: "max-content",
-            }}
-        >
-            <form onSubmit={onSubmit}>
-                <div style={{position: "absolute", top: ".5rem", right: ".5rem"}}>
-                    {currentStepIndex + 1} / {steps.length}
-                </div>
-                {step}
-                <div
-                    style={{
-                        marginTop: "1rem",
-                        display: "flex",
-                        gap: ".5rem",
-                        justifyContent: "flex-end",
-                    }}
-                >
-                    {!isFirstStep && (
-                        <button type="button" onClick={back}>
-                            Back
-                        </button>
-                    )}
-                    <button type="submit">{isLastStep ? "Finish" : "Next"}</button>
-                </div>
-            </form>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+            <Button variant="contained" onClick={toggleModal}>Open modal</Button>
 
-
-
+            <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={toggleModal}>
+                <form onSubmit={onSubmit}>
+                    <div style={{ position: "absolute", top: ".5rem", right: ".5rem" }}>
+                        {currentStepIndex + 1} / {steps.length}
+                    </div>
+                    {step}
+                    <div style={{ marginTop: "1rem", display: "flex", gap: ".5rem", justifyContent: "center", paddingBottom: '20px' }}>
+                        {!isFirstStep && (
+                            <Button variant="outlined" onClick={back}>Back</Button>
+                        )}
+                        <Button variant="contained" type="submit">{isLastStep ? "Finish" : "Next"}</Button>
+                    </div>
+                </form>
+            </Dialog>
         </div>
-
-
     );
 }
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction={'up'} ref={ref} {...props} />;
+});
 
 export default NeedHelpPage;

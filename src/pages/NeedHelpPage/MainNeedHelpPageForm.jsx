@@ -42,8 +42,16 @@ const MainNeedHelpPageForm = () => {
                 <UsefullButtonForLink to={'/GenomicProfiling'} text={"GenomicProfiling"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SpinalDeformity'} text={"SpinalDeformity"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SurgicalTreatment'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
+        {/*        {choto.map(e=>e){*/}
 
-        <Form/>
+
+        {/*        <button><Link to=`/sickness/${e.id}` onclick={*/}
+        {/*            функция которая перекидывает название диагноза в комнонент*/}
+        {/*        }>{e.diagnosis}</Link><button>*/}
+
+        {/* название пропс*/}
+        {/*наз*/}
+        {/*    }}*/}
         </div>
     );
 };

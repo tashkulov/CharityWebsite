@@ -1,56 +1,60 @@
 {
   "name": [
     {
-      "id": "2e0d",
+      "id": "95d2",
       "firstName": "Рустам",
-      "lastName": "Кежебеков",
-      "age": "14",
+      "lastName": "Рустамов",
+      "age": "12",
+      "state": "KG",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "",
+      "diagnosis": "Cardiology",
+      "needMoney": 0,
+      "leftMoney": 0
+    },
+    {
+      "id": "e8fb",
+      "firstName": "Бексултан",
+      "lastName": "Бексултан",
+      "age": "13",
       "state": "Россия",
       "city": "Bishkek",
       "street": "Tynystanova, 8A/31",
       "zip": "720085",
-      "needed": "genomicProfiling",
-      "diagnosis": "SpinalDeformity",
-      "needMoney": "150000"
+      "needed": "",
+      "diagnosis": "targetedTherapy",
+      "needMoney": 1250,
+      "leftMoney": 5
     },
     {
-      "id": "f675",
+      "id": "4bac",
       "firstName": "Нурис",
-      "lastName": "Ташкулов",
-      "age": "7",
-      "state": "Кг",
+      "lastName": "Нурис",
+      "age": "50000",
+      "state": "Сингапур",
       "city": "Bishkek",
       "street": "Tynystanova, 8A/31",
       "zip": "720085",
-      "needed": "surgicalTreatment",
-      "diagnosis": "SpinalDeformity",
-      "needMoney": 500000
-    },
-    {
-      "id": "0012",
-      "firstName": "Айдар",
-      "lastName": "Алымбеков",
-      "age": "5",
-      "state": "Кг",
-      "city": "Bishkek",
-      "street": "МоссСовет",
-      "zip": "720085",
-      "needed": "targetedTherapy",
+      "needed": "",
       "diagnosis": "Dota2",
-      "needMoney": "400000000"
+      "needMoney": 4750,
+      "leftMoney": 0
     },
     {
-      "id": "533e",
-      "firstName": "Ямато ",
-      "lastName": "Тахарами",
+      "id": "9624",
+      "firstName": "Байсал",
+      "lastName": "Байсал",
       "age": "12",
-      "state": "Япония",
-      "city": "Нара",
-      "street": "Хуй там",
-      "zip": "323523",
-      "needed": "surgicalTreatment",
+      "state": "3еландия",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "",
       "diagnosis": "DeformationsOfSystem",
-      "needMoney": "12452346"
+      "needMoney": 1000,
+      "leftMoney": 0
     }
   ]
 }
