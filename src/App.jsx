@@ -8,6 +8,7 @@ import Dota2 from "./entities/PageForDiseases/Dota2.jsx";
 import GenomicProfiling from "./entities/PageForDiseases/GenomicProfiling.jsx";
 import SpinalDeformity from "./entities/PageForDiseases/SpinalDeformity.jsx";
 import SurgicalTreatment from "./entities/PageForDiseases/SurgicalTreatment.jsx";
+import MainChildrenPage from "./pages/Children/ui/MainChildrenPage.jsx";
 
 function App() {
     return (
@@ -15,13 +16,15 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<MainNeedHelpPageForm />} />
-                    <Route path="/MainWantToHelp" element={<MainWantToHelp />} />
+                    <Route path="/MainWantToHelp" element={<MainWantToHelp/>} />
                     <Route path="/Cardiology" element={<Cardiology />} />
                     <Route path="/DeformationsOfSystem" element={<DeformationsOfSystem />} />
                     <Route path="/Dota2" element={<Dota2 />} />
                     <Route path="/GenomicProfiling" element={<GenomicProfiling />} />
                     <Route path="/SpinalDeformity" element={<SpinalDeformity />} />
                     <Route path="/SurgicalTreatment" element={<SurgicalTreatment />} />
+                    <Route path="/MainChildrenPage" element={<MainChildrenPage />} />
+
                 </Routes>
             </BrowserRouter>
             <Outlet />

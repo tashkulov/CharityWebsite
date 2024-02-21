@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { getUsersData, updateUserNeedMoney, getUserNeedMoney } from "../../app/store/store";
+import {getUserNeedMoney, getUsersData, updateUserLeftMoney} from "../../app/store/store.js";
 
 const MainWantToHelp = () => {
-    const [donationAmount, setDonationAmount] = useState(0);
     const [email, setEmail] = useState('');
+
     const [totalMoney, setTotalMoney] = useState(0);
     const [initialRemainingMoney, setInitialRemainingMoney] = useState();
-    const [collectedMoney, setCollectedMoney] = useState(0); 
+    const [collectedMoney, setCollectedMoney] = useState(0);
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [otherAmount, setOtherAmount] = useState(0); // Новое состояние для хранения значения другой суммы
 
     useEffect(() => {
         getUsersData()
@@ -23,13 +24,13 @@ const MainWantToHelp = () => {
                     getUserNeedMoney(randomUser.id)
                         .then(leftMoney => {
                             setTotalMoney(randomUser.needMoney);
-                            setInitialRemainingMoney(leftMoney); 
+                            setInitialRemainingMoney(leftMoney);
                         })
                         .catch(error => {
                             console.error('Ошибка при получении оставшейся суммы:', error);
                         });
                 } else {
-                    setTotalMoney(selectedUser.needMoney); 
+                    setTotalMoney(selectedUser.needMoney);
                 }
             })
             .catch(error => {
@@ -42,31 +43,23 @@ const MainWantToHelp = () => {
             alert('Достигнута изначальная сумма!');
             return;
         }
-        setDonationAmount(amount);
-        setCollectedMoney(prevCollectedMoney => prevCollectedMoney + amount);
-    };
-
-    const handleHelpButtonClick = () => {
-        if (!selectedUser) {
-            console.error('Не выбран пользователь для зачисления денег');
-            return;
-        }
-    
-      
-        updateUserNeedMoney(selectedUser.id, updatedNeedMoney)
-            .then(response => {
-                console.log('Сумма обновлена успешно');
-                setSelectedUser(prevUser => ({ ...prevUser, leftMoney: updatedNeedMoney }));
-            })
-            .catch(error => {
-                console.error('Ошибка при обновлении суммы:', error);
-            });
+        setCollectedMoney(prevCollectedMoney => {
+            const updatedCollectedMoney = prevCollectedMoney + amount;
+            updateUserLeftMoney(selectedUser.id, updatedCollectedMoney); // Обновляем значение leftMoney
+            return updatedCollectedMoney;
+        });
     };
 
     const handleInputChange = (e) => {
-        const value = e.target.value;
-        setCollectedMoney(prevCollectedMoney => prevCollectedMoney + value);
+        const value = parseFloat(e.target.value);
+        setOtherAmount(value);
+    };
+    const handleInputChangeForEmail = (e) => {
+        setEmail(e.target.value);
+    };
 
+    const handleOtherAmountButtonClick = () => {
+        handleAmountButtonClick(otherAmount);
     };
 
     return (
@@ -79,24 +72,29 @@ const MainWantToHelp = () => {
             </ButtonGroup>
 
             <input
-                value={email}
                 onChange={handleInputChange}
                 placeholder={"Другая сумма"}
             />
+            <input
+                onChange={(e)=>handleInputChangeForEmail(e)}
+                placeholder={"введите emeil"} />
+            <Button variant="contained" onClick={handleOtherAmountButtonClick}>Добавить другую сумму</Button> {/* Добавляем кнопку для добавления другой суммы */}
             {selectedUser && (
                 <div>
                     <p>Выбранный пользователь: {selectedUser.firstName} {selectedUser.lastName}</p>
-                    <Button variant="contained" onClick={handleHelpButtonClick}>Помочь</Button>
-                    <input type="checkbox"/><p>Я согласен с условиями Нуриса</p>
+                    <input type="checkbox" /><p>Я согласен с условиями Нуриса</p>
                     <form action="https://formspree.io/f/myyrwjva" method="POST">
-                        <input type="hidden" name="subject" value="Пожертвование"/>
-                        <input type="hidden" name="message" value="Пожертвование на имя пользователя"/>
+                        <input type="hidden" name="subject" value="Пожертвование" />
+                        <input type="hidden" name="он пожертвовал" value={collectedMoney} />
                         <input type="hidden" name="from_email" value={email}/>
                         <Button variant="contained" type="submit">Отправить</Button>
                     </form>
                     <div>
-                        <p>Изначальная сумма: {totalMoney}</p>
-                        <p>Собранная сумма: {collectedMoney}</p>
+                        <div>
+                            <p>Изначальная сумма: {totalMoney}</p>
+                            <p>Собранная сумма: {collectedMoney}</p>
+                            <p>Оставшаяся сумма: {totalMoney - collectedMoney}</p>
+                        </div>
                     </div>
                 </div>
             )}

@@ -1,25 +1,12 @@
 import React, {useState} from 'react';
 import NeedHelpPage from "../../features/MultipleStepForm/NeedHelpPage.jsx";
-import axios from "axios";
 import UsefullButtonForLink from "../../shared/ui/Button/UsefullButtonForLink.jsx";
 import {Link} from "react-router-dom";
-import Form from "../../shared/ui/Form/Form.jsx";
 
 
 
 const MainNeedHelpPageForm = () => {
-    // const neededOptions = [
-    //     { value: 'surgicalTreatment', label: 'Хирургическое лечение' },
-    //     { value: 'targetedTherapy', label: 'Таргетная терапия' },
-    //     { value: 'genomicProfiling', label: 'Геномное профилирование' }
-    // ];
-    //
-    // const diagnosisOptions = [
-    //     { value: 'Cardiology', label: 'Кардилогия' },
-    //     { value: 'SpinalDeformity', label: 'Деформация позвоночника' },
-    //     { value: 'Dota2', label: 'Дота 2' },
-    //     { value: 'DeformationsOfSystem', label: 'Деформации костно-мышечной системы' }
-    // ];
+
 
 
 
@@ -27,6 +14,8 @@ const MainNeedHelpPageForm = () => {
         <div>
 
             <Link to={"/MainWantToHelp"}>to help page</Link>
+            <br/>
+            <Link to={"/MainChildrenPage"}>children</Link>
             <h1>This is Header</h1>
             <h2>Заявка на получение помощи</h2>
             <h5>Пожалуйста, ознакомьтесь с полным списком документов, необходимых для обращения за помощью, и аккуратно
@@ -42,6 +31,7 @@ const MainNeedHelpPageForm = () => {
                 <UsefullButtonForLink to={'/GenomicProfiling'} text={"GenomicProfiling"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SpinalDeformity'} text={"SpinalDeformity"}></UsefullButtonForLink>
                 <UsefullButtonForLink to={'/SurgicalTreatment'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
+                <UsefullButtonForLink to={'/MainChildrenPage/:name'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
         {/*        {choto.map(e=>e){*/}
 
 

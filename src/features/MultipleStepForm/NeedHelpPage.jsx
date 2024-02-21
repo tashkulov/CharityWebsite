@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMultiStepForm } from "./useMultiStepForm.js";
-import ChildForm from "./UserForm.jsx";
-import AddressForm from "./AdressForm.jsx";
-import TreatmentForm from "./TreatmentForm.jsx";
+import ChildForm from "../../entities/FormsForMultiStepForm/UserForm.jsx";
+import AddressForm from "../../entities/FormsForMultiStepForm/AdressForm.jsx";
+import TreatmentForm from "../../entities/FormsForMultiStepForm/TreatmentForm.jsx";
 import Button from '@mui/material/Button';
 import { Dialog, Slide } from "@mui/material";
 import {submitDataToServer} from "../../app/store/store.js";

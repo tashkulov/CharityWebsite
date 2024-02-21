@@ -21,7 +21,7 @@ const TreatmentForm = ({needed,diagnosis,needMoney,updateFields}) => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             label="Age"
-                            value={diagnosis} onChange={e => updateFields({diagnosis: e.target.value})}
+                            value={diagnosis} onChange={e => updateFields({needed: e.target.value})}
                         >
                             <MenuItem value={"surgicalTreatment"}>хирургическое лечение</MenuItem>
                             <MenuItem value={"targetedTherapy"}>таргетная терапия</MenuItem>

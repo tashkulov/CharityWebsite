@@ -11,8 +11,8 @@
       "zip": "720085",
       "needed": "",
       "diagnosis": "Cardiology",
-      "needMoney": 0,
-      "leftMoney": 0
+      "needMoney": 1750,
+      "leftMoney": 1750
     },
     {
       "id": "e8fb",
@@ -25,8 +25,8 @@
       "zip": "720085",
       "needed": "",
       "diagnosis": "targetedTherapy",
-      "needMoney": 1250,
-      "leftMoney": 5
+      "needMoney": 226300,
+      "leftMoney": 10000
     },
     {
       "id": "4bac",
@@ -53,7 +53,63 @@
       "zip": "720085",
       "needed": "",
       "diagnosis": "DeformationsOfSystem",
-      "needMoney": 1000,
+      "needMoney": 545462,
+      "leftMoney": 83000
+    },
+    {
+      "id": "0ea8",
+      "firstName": "Mairam ",
+      "lastName": "Sul",
+      "age": "20",
+      "state": "G",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "",
+      "diagnosis": "SpinalDeformity",
+      "needMoney": "50000",
+      "leftMoney": 3750
+    },
+    {
+      "id": "4d7f",
+      "firstName": "Azamat",
+      "lastName": "tur",
+      "age": "33",
+      "state": "343",
+      "city": "3",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "",
+      "diagnosis": "genomicProfiling",
+      "needMoney": 128000,
+      "leftMoney": 4000
+    },
+    {
+      "id": "6677",
+      "firstName": "Ниара",
+      "lastName": "Машева",
+      "age": "32",
+      "state": "уац",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "targetedTherapy",
+      "diagnosis": "DeformationsOfSystem",
+      "needMoney": 100000,
+      "leftMoney": 0
+    },
+    {
+      "id": "887a",
+      "firstName": "Рустам ",
+      "lastName": "Кожобеков",
+      "age": "21",
+      "state": "Кг",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "surgicalTreatment",
+      "diagnosis": "DeformationsOfSystem",
+      "needMoney": "5000",
       "leftMoney": 0
     }
   ]
