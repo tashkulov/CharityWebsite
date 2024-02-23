@@ -26,7 +26,7 @@
       "needed": "",
       "diagnosis": "targetedTherapy",
       "needMoney": 226300,
-      "leftMoney": 10000
+      "leftMoney": 3000
     },
     {
       "id": "4bac",
@@ -54,7 +54,7 @@
       "needed": "",
       "diagnosis": "DeformationsOfSystem",
       "needMoney": 545462,
-      "leftMoney": 83000
+      "leftMoney": null
     },
     {
       "id": "0ea8",
@@ -68,7 +68,7 @@
       "needed": "",
       "diagnosis": "SpinalDeformity",
       "needMoney": "50000",
-      "leftMoney": 3750
+      "leftMoney": 11111
     },
     {
       "id": "4d7f",
@@ -82,7 +82,7 @@
       "needed": "",
       "diagnosis": "genomicProfiling",
       "needMoney": 128000,
-      "leftMoney": 4000
+      "leftMoney": 11543
     },
     {
       "id": "6677",
@@ -110,7 +110,7 @@
       "needed": "surgicalTreatment",
       "diagnosis": "DeformationsOfSystem",
       "needMoney": "5000",
-      "leftMoney": 0
+      "leftMoney": null
     }
   ]
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ShowHelpedChildren from "../../../features/ShowHelpedChildren/ShowHelpedChildren.jsx";
 import ShowChildrenWhoNeedHelp from "../../../features/ShowChildrenWhoNeedHelp/ShowChildrenWhoNeedHelp.jsx";
 import Button from "@mui/material/Button";
+import NavBarForAllSite from "../../../entities/NavBar/NavBarForAllSite.jsx";
 
 const MainChildrenPage = () => {
     const [showHelpedChildren, setShowHelpedChildren] = useState(false);
@@ -19,6 +20,7 @@ const MainChildrenPage = () => {
 
     return (
         <div>
+            <NavBarForAllSite/>
             <h2>Дети, которым уже помогли</h2>
             <Button variant={"contained"} onClick={handleShowHelpedChildrenClick} >Показать детей</Button>
 

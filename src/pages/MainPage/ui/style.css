@@ -1,0 +1,40 @@
+/* style.css */
+
+.MainPage {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fullWidthVideo {
+    width: 100%;
+    height: auto;
+}
+
+.videoContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1; /* Чтобы контент был выше видео */
+}
+.videoContent h1{
+    font-size: 70px;
+    line-height: 5rem;
+}
+
+.videoContent span{
+    color: #0f58d0;
+}
+.videoContent h3{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+}
+

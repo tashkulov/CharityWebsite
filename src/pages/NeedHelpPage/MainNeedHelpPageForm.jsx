@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import NeedHelpPage from "../../features/MultipleStepForm/NeedHelpPage.jsx";
 import UsefullButtonForLink from "../../shared/ui/Button/UsefullButtonForLink.jsx";
 import {Link} from "react-router-dom";
+import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 
 
 
@@ -12,10 +13,9 @@ const MainNeedHelpPageForm = () => {
 
     return (
         <div>
+            <NavBarForAllSite/>
 
-            <Link to={"/MainWantToHelp"}>to help page</Link>
-            <br/>
-            <Link to={"/MainChildrenPage"}>children</Link>
+
             <h1>This is Header</h1>
             <h2>Заявка на получение помощи</h2>
             <h5>Пожалуйста, ознакомьтесь с полным списком документов, необходимых для обращения за помощью, и аккуратно

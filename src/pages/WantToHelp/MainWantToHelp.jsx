@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import {getUserNeedMoney, getUsersData, updateUserLeftMoney} from "../../app/store/store.js";
+import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 
 const MainWantToHelp = () => {
     const [email, setEmail] = useState('');
@@ -60,10 +61,14 @@ const MainWantToHelp = () => {
 
     const handleOtherAmountButtonClick = () => {
         handleAmountButtonClick(otherAmount);
+        setOtherAmount(0);
+
     };
 
     return (
-        <div className={'container'}>
+
+    <div>
+        <NavBarForAllSite/>
             <h1>Сделать пожертвование детям</h1>
             <ButtonGroup variant="contained" aria-label="Basic button group">
                 <Button variant="contained" onClick={() => handleAmountButtonClick(250)}>250</Button>
@@ -78,7 +83,7 @@ const MainWantToHelp = () => {
             <input
                 onChange={(e)=>handleInputChangeForEmail(e)}
                 placeholder={"введите emeil"} />
-            <Button variant="contained" onClick={handleOtherAmountButtonClick}>Добавить другую сумму</Button> {/* Добавляем кнопку для добавления другой суммы */}
+            <Button variant="contained" onClick={handleOtherAmountButtonClick}>Добавить другую сумму</Button>
             {selectedUser && (
                 <div>
                     <p>Выбранный пользователь: {selectedUser.firstName} {selectedUser.lastName}</p>
