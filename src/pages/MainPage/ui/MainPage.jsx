@@ -2,6 +2,7 @@ import React from 'react';
 import NavBarForAllSite from "../../../entities/NavBar/NavBarForAllSite.jsx";
 import VideoForSite from "./video/VideoForSite.mp4";
 import "./style.css";
+import {WantToHelpBlock} from "../../../features/WantToHelpBlock/index.js";
 
 const MainPage = () => {
     return (
@@ -35,6 +36,10 @@ const MainPage = () => {
                     Магазин поощрений
                     Благотворительный фонд «Линия жизни» принимает участие в проекте Правительства Москвы, стимулирующем москвичей активно участвовать в городской жизни.</p>
             </aside>
+            <br/>
+            <br/>
+            <WantToHelpBlock/>
+
         </div>
     );
 };

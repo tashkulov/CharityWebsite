@@ -3,6 +3,7 @@ import NeedHelpPage from "../../features/MultipleStepForm/NeedHelpPage.jsx";
 import UsefullButtonForLink from "../../shared/ui/Button/UsefullButtonForLink.jsx";
 import {Link} from "react-router-dom";
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
+import {WantToHelpBlock} from "../../features/WantToHelpBlock/index.js";
 
 
 
@@ -25,13 +26,6 @@ const MainNeedHelpPageForm = () => {
             <a href="files/Заявление.doc" download>Скачать файл</a>
             <a href="files/Инструкция%20для%20заполнения%20заявления.doc" download>Скачать файл</a>
 
-                <UsefullButtonForLink to={'/Cardiology'} text={"Кардиология"}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/DeformationsOfSystem'} text={"DeformationsOfSystem"}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/Dota2'} text={"Dota2"}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/GenomicProfiling'} text={"GenomicProfiling"}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/SpinalDeformity'} text={"SpinalDeformity"}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/SurgicalTreatment'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
-                <UsefullButtonForLink to={'/MainChildrenPage/:name'} text={"SurgicalTreatment    "}></UsefullButtonForLink>
         {/*        {choto.map(e=>e){*/}
 
 
@@ -42,6 +36,10 @@ const MainNeedHelpPageForm = () => {
         {/* название пропс*/}
         {/*наз*/}
         {/*    }}*/}
+<br/>
+<br/>
+            <WantToHelpBlock/>
+
         </div>
     );
 };

@@ -18,7 +18,8 @@ const INITIAL_DATA = {
     needed: "",
     diagnosis: "",
     needMoney: 0,
-    leftMoney: 0 
+    leftMoney: 0 ,
+    image:'',
 };
 
 function NeedHelpPage() {

@@ -3,6 +3,7 @@ import ShowHelpedChildren from "../../../features/ShowHelpedChildren/ShowHelpedC
 import ShowChildrenWhoNeedHelp from "../../../features/ShowChildrenWhoNeedHelp/ShowChildrenWhoNeedHelp.jsx";
 import Button from "@mui/material/Button";
 import NavBarForAllSite from "../../../entities/NavBar/NavBarForAllSite.jsx";
+import {WantToHelpBlock} from "../../../features/WantToHelpBlock/index.js";
 
 const MainChildrenPage = () => {
     const [showHelpedChildren, setShowHelpedChildren] = useState(false);
@@ -30,6 +31,10 @@ const MainChildrenPage = () => {
             <Button variant={"contained"} onClick={handleShowChildrenWhoNeedHelpClick} >Показать детей</Button>
 
             {showChildrenWhoNeedHelp && <ShowChildrenWhoNeedHelp />}
+            <br/>
+            <br/>
+            <WantToHelpBlock/>
+
         </div>
     );
 };

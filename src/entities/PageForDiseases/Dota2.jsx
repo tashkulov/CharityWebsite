@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import NavBarForAllSite from "../NavBar/NavBarForAllSite.jsx";
 
 const Dota2 = () => {
     const [userIll, setUserIll] = useState([]);
@@ -17,12 +21,21 @@ const Dota2 = () => {
 
     return (
         <div>
+            <NavBarForAllSite/>
+
             <h1>Пользователи с диагнозом "Дота2"</h1>
             <ul>
-                {userIll.map(user => (
-                    <li key={user.id}>
-                        {user.firstName} {user.lastName} (Age: {user.age})
-                    </li>
+                {userIll.map(child => (
+                    <Card key={child.id} variant="outlined" style={{marginBottom: '20px'}}>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {child.firstName} {child.lastName}
+                            </Typography>
+                            <Typography variant="body2">
+                                Возраст: {child.age}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 ))}
             </ul>
         </div>

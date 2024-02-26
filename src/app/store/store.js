@@ -80,3 +80,12 @@ export async function ShowAllHelpedChildren() {
         throw new Error("Ошибка при получении данных о детях, которым уже помогли:", error);
     }
 }
+
+export async function getChildDetailsById(childId) {
+    try {
+        const response = await axios.get(`http://localhost:5000/name/${childId}`);
+        return response.data;
+    } catch (error) {
+        throw new Error("Error getting child details:", error);
+    }
+}

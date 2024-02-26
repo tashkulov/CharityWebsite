@@ -103,19 +103,28 @@ function NavBarForAllSite() {
                         }}
                     >
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                             <Button
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block', '&:hover': { border: '1px solid white', backgroundColor: 'rgb(59 130 246 / .5)' } }}
                             >
-                                <Link style={{textDecoration:"none",color:"white"}}
-                                    to={"/MainChildrenPage"}>Дети</Link>
+                                <Link style={{ textDecoration: "none", color: "white" }} to={"/MainChildrenPage"}>Дети</Link>
                             </Button>
-
+                        </Box>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block', '&:hover': { border: '1px solid white', backgroundColor: 'rgb(59 130 246 / .5)' } }}
+                            >
+                                <Link style={{ textDecoration: "none", color: "white" }} to={"/MedicinePage"}>Медицина</Link>
+                            </Button>
+                        </Box>
                     </Box>
 
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block', '&:hover': { border: '1px solid white' } }}

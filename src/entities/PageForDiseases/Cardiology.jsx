@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import NavBarForAllSite from "../NavBar/NavBarForAllSite.jsx";
 
 const Cardiology = () => {
-    const [userIll, setUserIll] = useState([]);
+    const [children, setChildren] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:5000/name')
             .then(response => {
                 const users = response.data.filter(user => user.diagnosis === "Cardiology");
-                setUserIll(users);
+                setChildren(users); // Используем setChildren для установки состояния
             })
             .catch(error => {
                 console.error('Ошибка при получении пользователей:', error);
@@ -17,12 +21,21 @@ const Cardiology = () => {
 
     return (
         <div>
+            <NavBarForAllSite/>
+
             <h1>Пользователи с диагнозом "Кардиология"</h1>
             <ul>
-                {userIll.map(user => (
-                    <li key={user.id}>
-                        {user.firstName} {user.lastName} (Age: {user.age})
-                    </li>
+                {children.map(child => (
+                    <Card key={child.id} variant="outlined" style={{ marginBottom: '20px' }}>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {child.firstName} {child.lastName}
+                            </Typography>
+                            <Typography variant="body2">
+                                Возраст: {child.age}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 ))}
             </ul>
         </div>

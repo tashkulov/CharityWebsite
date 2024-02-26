@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 1300px;
+  gap: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5); /* Горизонтальное смещение, вертикальное смещение, размытие, радиус и цвет */
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group > input {
+  margin-right: 10px;
+}
