@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ShowAllHelpedChildren } from "../../app/store/store.js";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import ButtonShowDetails from "../ButtonShowDetails/ButtonShowDetails.jsx";
+import {ShowAllHelpedChildren} from "../../app/store/UserThunks.js";
 
 const ShowHelpedChildren = () => {
     const [children, setChildren] = useState([]);

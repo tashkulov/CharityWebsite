@@ -1,8 +1,8 @@
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { getUsersData, updateUserLeftMoney } from "../../../app/store/store.js";
-import styles from "./style.module.scss"; // Импорт стилей
+import styles from "./style.module.scss";
+import {getUsersData, updateUserLeftMoney} from "../../../app/store/UserThunks.js"; // Импорт стилей
 
 const WantToHelpBlock = () => {
     const [amount, setAmount] = useState(0);
