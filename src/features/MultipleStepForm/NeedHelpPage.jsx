@@ -45,7 +45,7 @@ function NeedHelpPage() {
         if (!isLastStep) return next();
 
         try {
-            await dispatch(submitDataToServer(data)); // Отправляем данные через Redux Thunk
+            await dispatch(submitDataToServer(data));
             console.log('Data submitted successfully');
             setData(INITIAL_DATA);
             setOpen(true);

@@ -88,7 +88,7 @@ export const updateUserLeftMoney = createAsyncThunk(
             try {
                 const response = await axios.get('http://localhost:5000/name');
                 const allChildrenWhoNeedsHelp = response.data;
-                const needHelpChildren = allChildrenWhoNeedsHelp.filter(child => child.needMoney > 0);
+                const needHelpChildren = allChildrenWhoNeedsHelp.filter(child => child.needMoney != child.leftMoney);
                 return needHelpChildren;
             } catch (error) {
                 return rejectWithValue(error.response.data);
@@ -100,15 +100,37 @@ export const ShowAllHelpedChildren = createAsyncThunk(
     'server/ShowAllHelpedChildren',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get("http://localhost:5000/name");
-            const allChildren = response.data;
-            const allChildrenHelped = allChildren.filter(child => child.needMoney === child.leftMoney);
-            return allChildrenHelped;
+            const response = await axios.get("http://localhost:5000/helped");
+            return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
     }
 );
+
+
+export const moveChildrenToHelped = createAsyncThunk(
+    'server/moveChildrenToHelped',
+    async (data, { rejectWithValue }) => {
+        try {
+            const helpedChildren = data.filter(child => child.needMoney == child.leftMoney);
+            console.log(data)
+            return helpedChildren
+            // await axios.post('http://localhost:5000/helped', helpedChildren);
+            // const response2 = await axios.get('http://localhost:5000/helped');
+
+            // await Promise.all(helpedChildren.map(
+            //     child => axios.delete(`http://localhost:5000/name/${child.id}`
+            //     )));
+            //
+            // return helpedChildren;
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+
 
 export const getChildDetailsById = createAsyncThunk(
     'server/getChildDetailsById',

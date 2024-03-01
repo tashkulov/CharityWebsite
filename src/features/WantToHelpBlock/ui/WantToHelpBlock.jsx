@@ -2,12 +2,19 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import styles from "./style.module.scss";
-import {getUsersData, updateUserLeftMoney} from "../../../app/store/UserThunks.js"; // Импорт стилей
+import {
+    fetchUsersData,
+    getUsersData,
+    moveChildrenToHelped,
+    updateUserLeftMoney
+} from "../../../app/store/UserThunks.js";
+import {useDispatch} from "react-redux";
 
 const WantToHelpBlock = () => {
     const [amount, setAmount] = useState(0);
     const [customAmount, setCustomAmount] = useState('');
     const [loading, setLoading] = useState(false);
+    const dispatch=useDispatch();
 
     const handleAmountButtonClick = (value) => {
         setAmount(value);
@@ -26,17 +33,18 @@ const WantToHelpBlock = () => {
     const handleHelpButtonClick = async () => {
         setLoading(true);
         try {
-            const allUsers = await getUsersData();
-            const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
+            const allUsers = await dispatch(fetchUsersData());
+            const randomUser = allUsers.payload[Math.floor(Math.random() * allUsers.payload.length)];
             const updatedLeftMoney = randomUser.leftMoney + amount;
-            await updateUserLeftMoney(randomUser.id, updatedLeftMoney);
-            // Здесь можно выполнить дополнительные действия после успешного обновления данных
+            await dispatch(updateUserLeftMoney({userId: randomUser.id, updatedMoney:updatedLeftMoney}));
+
         } catch (error) {
             console.error('Ошибка при помощи:', error);
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div className={styles.container}> {/* Применяем класс из стилей */}
@@ -59,6 +67,7 @@ const WantToHelpBlock = () => {
                 disabled={amount === 0 || loading}
             >
                 {loading ? 'Выполняется...' : 'Помочь случайному ребенку'}
+
             </Button>
         </div>
     );

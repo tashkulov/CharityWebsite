@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import NavBarForAllSite from "../NavBar/NavBarForAllSite.jsx";
+import ButtonShowDetails from "../../features/ButtonShowDetails/ButtonShowDetails.jsx";
 
 const Dota2 = () => {
     const [userIll, setUserIll] = useState([]);
@@ -34,7 +35,10 @@ const Dota2 = () => {
                             <Typography variant="body2">
                                 Возраст: {child.age}
                             </Typography>
+                            <ButtonShowDetails child={child} />
+
                         </CardContent>
+
                     </Card>
                 ))}
             </ul>

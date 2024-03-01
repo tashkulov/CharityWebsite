@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsersData, updateUserLeftMoney} from "../../app/store/UserThunks.js";
+import {fetchUsersData, moveChildrenToHelped, updateUserLeftMoney} from "../../app/store/UserThunks.js";
 import {setCollectedMoney} from "../../features/UserSlice/UserSlice.js";
 
 const MainWantToHelp = () => {
@@ -33,7 +33,10 @@ const MainWantToHelp = () => {
 
         try {
             await dispatch(updateUserLeftMoney({ userId: selectedUser.id, updatedMoney: collectedMoney + amount }));
+
             dispatch(setCollectedMoney(collectedMoney + amount));
+            await dispatch(moveChildrenToHelped({data: users}));
+
         } catch (error) {
             console.error('Ошибка при обновлении суммы:', error);
         }

@@ -4,28 +4,27 @@ import { Card, CardContent, Grid, Typography } from '@mui/material';
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import styles from '../ShowHelpedChildren/style.module.scss';
 import { useDispatch, useSelector } from "react-redux";
-import { ShowAllNeedHelpChildren } from "../../app/store/UserThunks.js";
+import {ShowAllHelpedChildren, ShowAllNeedHelpChildren} from "../../app/store/UserThunks.js";
 
 const ChildDetailsPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const [child, setChild] = useState(null);
 
-    const children = useSelector(state => state.users.children);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const actionResult = await dispatch(ShowAllNeedHelpChildren());
-                const childrenData = actionResult.payload; // Доступ к массиву детей в объекте
+                const actionResult = await dispatch(ShowAllHelpedChildren());
+                const childrenData = actionResult.payload;
                 const selectedChild = childrenData.find(child => child.id === id);
                 setChild(selectedChild);
+                console.log(childrenData)
             } catch (error) {
                 console.error('Ошибка при загрузке данных о детях:', error);
             }
         };
 
-        fetchData(); // Вызов функции fetchData
+        fetchData();
 
     }, [dispatch, id]);
 
