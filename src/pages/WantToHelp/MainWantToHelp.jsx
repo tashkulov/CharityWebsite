@@ -8,11 +8,10 @@ import {setCollectedMoney} from "../../features/UserSlice/UserSlice.js";
 
 const MainWantToHelp = () => {
     const dispatch = useDispatch();
-    const users = useSelector(state => state.users.list);
+    const data = useSelector(state => state.users.list);
     const selectedUser = useSelector(state => state.users.selectedUser);
     const totalMoney = useSelector(state => state.users.totalMoney);
     const collectedMoney = useSelector(state => state.users.collectedMoney);
-
     const [email, setEmail] = useState('');
     const [otherAmount, setOtherAmount] = useState(0);
 
@@ -32,11 +31,19 @@ const MainWantToHelp = () => {
         }
 
         try {
-            await dispatch(updateUserLeftMoney({ userId: selectedUser.id, updatedMoney: collectedMoney + amount }));
 
+            data.filter(user =>
+
+                user.needMoney == user.leftMoney
+
+                    ? dispatch(moveChildrenToHelped(user))
+                    : ""
+            );
+
+            await dispatch(updateUserLeftMoney({
+                userId: selectedUser.id, updatedMoney: collectedMoney + amount
+            }));
             dispatch(setCollectedMoney(collectedMoney + amount));
-            await dispatch(moveChildrenToHelped({data: users}));
-
         } catch (error) {
             console.error('Ошибка при обновлении суммы:', error);
         }
@@ -53,7 +60,7 @@ const MainWantToHelp = () => {
 
     const handleOtherAmountButtonClick = () => {
         handleAmountButtonClick(otherAmount);
-        setOtherAmount(0);
+        // setOtherAmount(0);
     };
 
     return (

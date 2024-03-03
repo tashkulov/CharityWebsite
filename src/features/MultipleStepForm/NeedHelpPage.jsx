@@ -7,8 +7,10 @@ import TreatmentForm from '../../entities/FormsForMultiStepForm/TreatmentForm';
 import Button from '@mui/material/Button';
 import { Dialog, Slide } from '@mui/material';
 import {submitDataToServer} from "../../app/store/UserThunks.js";
+import { v4 as uuidv4 } from 'uuid';
 
 const INITIAL_DATA = {
+    id:'',
     firstName: '',
     lastName: '',
     age: 0,
@@ -26,7 +28,9 @@ const INITIAL_DATA = {
 function NeedHelpPage() {
     const [data, setData] = useState(INITIAL_DATA);
     const [open, setOpen] = useState(false);
-    const dispatch = useDispatch(); // Получаем функцию dispatch
+
+    const dispatch = useDispatch();
+
 
     function updateFields(fields) {
         setData(prev => {
@@ -45,7 +49,9 @@ function NeedHelpPage() {
         if (!isLastStep) return next();
 
         try {
-            await dispatch(submitDataToServer(data));
+
+            const userDataWithId = { ...data, id: uuidv4() };
+            await dispatch(submitDataToServer(userDataWithId));
             console.log('Data submitted successfully');
             setData(INITIAL_DATA);
             setOpen(true);

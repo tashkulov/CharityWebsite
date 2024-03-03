@@ -14,7 +14,7 @@ const ChildDetailsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const actionResult = await dispatch(ShowAllHelpedChildren());
+                const actionResult = await dispatch(ShowAllNeedHelpChildren());
                 const childrenData = actionResult.payload;
                 const selectedChild = childrenData.find(child => child.id === id);
                 setChild(selectedChild);

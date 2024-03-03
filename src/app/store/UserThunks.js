@@ -1,12 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
-
-
 export const submitDataToServer = createAsyncThunk(
     'server/submitDataToServer',
-    async (data, { rejectWithValue }) => {
+    async (data,{ rejectWithValue }) => {
         try {
             const response = await axios.post(`http://localhost:5000/name`, data);
             return response.data;
@@ -111,19 +108,14 @@ export const ShowAllHelpedChildren = createAsyncThunk(
 
 export const moveChildrenToHelped = createAsyncThunk(
     'server/moveChildrenToHelped',
-    async (data, { rejectWithValue }) => {
+    async (user,{ rejectWithValue }) => {
         try {
-            const helpedChildren = data.filter(child => child.needMoney == child.leftMoney);
-            console.log(data)
-            return helpedChildren
-            // await axios.post('http://localhost:5000/helped', helpedChildren);
-            // const response2 = await axios.get('http://localhost:5000/helped');
+            console.log(user,'from data')
+            await axios.post('http://localhost:5000/helped', user);
+            const response2 = await axios.get('http://localhost:5000/helped');
+            await axios.delete(`http://localhost:5000/name/${user.id}`)
 
-            // await Promise.all(helpedChildren.map(
-            //     child => axios.delete(`http://localhost:5000/name/${child.id}`
-            //     )));
-            //
-            // return helpedChildren;
+            return user;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -149,7 +141,7 @@ export const fetchUsersData = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get('http://localhost:5000/name');
-            return response.data;
+                return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }

@@ -35,7 +35,7 @@ function App() {
                     <Route path="/MainNeedHelpPageForm" element={<MainNeedHelpPageForm />} />
                     <Route path="/MedicinePage" element={<MedicinePage/>} />
 
-                    <Route path="/child/:id" element={<ChildDetailsPage />} /> {/* Добавляем маршрут для отображения страницы с подробностями о ребенке */}
+                    <Route path="/child/:id" element={<ChildDetailsPage />} />
                                  </Routes>
             </BrowserRouter>
         </div>

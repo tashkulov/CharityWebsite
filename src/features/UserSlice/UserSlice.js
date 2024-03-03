@@ -30,7 +30,9 @@ export const userSlice = createSlice({
                 state.userFinancialData[userId] = { needMoney, leftMoney };
                 if (userId === state.selectedUser?.id) {
                     state.totalMoney = parseInt(needMoney);
-                    state.collectedMoney = leftMoney;
+                    if (state.collectedMoney === 0) {
+                        state.collectedMoney = leftMoney;
+                    }
                 }
             })
             .addCase(setCollectedMoney, (state, action) => {

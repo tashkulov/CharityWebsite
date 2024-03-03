@@ -34,7 +34,7 @@ const WantToHelpBlock = () => {
         setLoading(true);
         try {
             const allUsers = await dispatch(fetchUsersData());
-            const randomUser = allUsers.payload[Math.floor(Math.random() * allUsers.payload.length)];
+            const randomUser = allUsers[Math.floor(Math.random() * allUsers.payload.length)];
             const updatedLeftMoney = randomUser.leftMoney + amount;
             await dispatch(updateUserLeftMoney({userId: randomUser.id, updatedMoney:updatedLeftMoney}));
 
