@@ -12,7 +12,6 @@ import MainChildrenPage from "../pages/Children/ui/MainChildrenPage.jsx";
 import MainPage from "../pages/MainPage/ui/MainPage.jsx";
 import MedicinePage from "../pages/MedicinePage/ui/MedicinePage.jsx";
 import TargetedTherapy from "../entities/PageForDiseases/TargetedTherapy.jsx";
-import ButtonShowDetails from "../features/ButtonShowDetails/ButtonShowDetails.jsx";
 import ChildDetailsPage from "../features/ChildDetailsPage/ChildDetailsPage.jsx";
 
 
@@ -37,6 +36,8 @@ function App() {
 
                     <Route path="/child/:id" element={<ChildDetailsPage />} />
                                  </Routes>
+
+
             </BrowserRouter>
         </div>
     )

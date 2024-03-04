@@ -4,37 +4,21 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ButtonShowDetails from "../ButtonShowDetails/ButtonShowDetails.jsx";
 import { useDispatch } from 'react-redux';
-import {ShowAllHelpedChildren, ShowAllNeedHelpChildren} from "../../app/store/UserThunks.js";
-
-const ShowHelpedChildren = () => {
-    const [children, setChildren] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const dispatch = useDispatch();
+import {ShowAllHelpedChildren} from "../../app/store/UserThunks.js";
 
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const {payload} = await dispatch(ShowAllHelpedChildren());
-                setChildren(payload);
-                console.log(payload)
-                setLoading(false);
-            } catch (error) {
-                console.error('Ошибка при загрузке данных о детях:', error);
-                setError(error);
-                setLoading(false);
-            }
-        };
+const ShowHelpedChildren = ({children}) => {
 
-        fetchData();
-    }, [ dispatch]);
+
+
+
+
     return (
         <div>
             {children.length ? (
-                children.map(child => (
-                    <div key={child.id}>
+                children.map((child, index) => (
+                    <div key={index}>
                         <Card variant="outlined" style={{marginBottom: '20px'}}>
                             <CardContent>
                                 <Typography variant="h5" component="div">
@@ -49,8 +33,9 @@ const ShowHelpedChildren = () => {
                     </div>
                 ))
             ) : (
-                <div>Дети, нуждающиеся в помощи, отсутствуют.</div>
+                <div key="no-children">Дети, нуждающиеся в помощи, отсутствуют.</div>
             )}
+
 
         </div>
     );

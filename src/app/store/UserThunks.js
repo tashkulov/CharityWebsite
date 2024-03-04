@@ -84,9 +84,7 @@ export const updateUserLeftMoney = createAsyncThunk(
         async (_, { rejectWithValue }) => {
             try {
                 const response = await axios.get('http://localhost:5000/name');
-                const allChildrenWhoNeedsHelp = response.data;
-                const needHelpChildren = allChildrenWhoNeedsHelp.filter(child => child.needMoney != child.leftMoney);
-                return needHelpChildren;
+                return response.data;
             } catch (error) {
                 return rejectWithValue(error.response.data);
             }

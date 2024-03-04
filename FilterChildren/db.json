@@ -14,6 +14,21 @@
       "needMoney": "33000",
       "leftMoney": 3000,
       "image": "https://i.pinimg.com/564x/04/93/ce/0493ce55d30d6fdb183170f934d11416.jpg"
+    },
+    {
+      "id": "d221f7b1-6a60-42ac-b48f-660b6cf72b90",
+      "firstName": "Аяна",
+      "lastName": "Сагынбекова",
+      "age": "21",
+      "state": "Кз",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "targetedTherapy",
+      "diagnosis": "Cardiology",
+      "needMoney": "40000",
+      "leftMoney": 0,
+      "image": "https://i.pinimg.com/564x/c1/6d/d5/c16dd50bd22c38b41f6d11a140ee9c30.jpg"
     }
   ],
   "helped": [

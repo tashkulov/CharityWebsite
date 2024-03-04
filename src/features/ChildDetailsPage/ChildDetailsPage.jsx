@@ -4,7 +4,7 @@ import { Card, CardContent, Grid, Typography } from '@mui/material';
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import styles from '../ShowHelpedChildren/style.module.scss';
 import { useDispatch, useSelector } from "react-redux";
-import {ShowAllHelpedChildren, ShowAllNeedHelpChildren} from "../../app/store/UserThunks.js";
+import { ShowAllHelpedChildren, ShowAllNeedHelpChildren } from "../../app/store/UserThunks.js";
 
 const ChildDetailsPage = () => {
     const dispatch = useDispatch();
@@ -14,11 +14,12 @@ const ChildDetailsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const actionResult = await dispatch(ShowAllNeedHelpChildren());
-                const childrenData = actionResult.payload;
-                const selectedChild = childrenData.find(child => child.id === id);
-                setChild(selectedChild);
-                console.log(childrenData)
+                const actionResult1 = await dispatch(ShowAllNeedHelpChildren());
+                const actionResult2=await  dispatch(ShowAllHelpedChildren());
+
+                const selectedChild1 = actionResult1.payload.find(child => child.id === id);
+                const selectedChild2 = actionResult2.payload.find(child => child.id === id);
+                setChild(!selectedChild1 ? selectedChild2 :selectedChild1);
             } catch (error) {
                 console.error('Ошибка при загрузке данных о детях:', error);
             }
