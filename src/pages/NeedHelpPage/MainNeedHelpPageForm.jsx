@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import NeedHelpPage from "../../features/MultipleStepForm/NeedHelpPage.jsx";
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import {WantToHelpBlock} from "../../features/WantToHelpBlock/index.js";
+import ButtonWantToHelp from "../../widgets/ButtonWantToHelp/ButtonWantToHelp.jsx";
 
 
 
