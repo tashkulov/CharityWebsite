@@ -35,6 +35,7 @@ const Cardiology = () => {
                             <Typography variant="body2">
                                 Возраст: {child.age}
                             </Typography>
+
                             <ButtonShowDetails child={child} />
 
                         </CardContent>
