@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { Dialog, Slide } from "@mui/material";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
-const ButtonWantToHelp = () => {
+const ButtonWantToHelp = ({ onPayment}) => {
     const [open, setOpen] = useState(false);
     const handleOpenModal = () => {
         setOpen(true);
@@ -14,7 +14,7 @@ const ButtonWantToHelp = () => {
     };
 
     const handlePayment = (amount) => {
-        console.log('Оплата суммы:', amount);
+        onPayment(amount);
         handleCloseModal();
     };
 

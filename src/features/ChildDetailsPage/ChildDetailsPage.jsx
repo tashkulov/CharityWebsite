@@ -4,7 +4,7 @@ import { Card, CardContent, Grid, Typography } from '@mui/material';
 import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import styles from '../ShowHelpedChildren/style.module.scss';
 import { useDispatch, useSelector } from "react-redux";
-import { ShowAllHelpedChildren, ShowAllNeedHelpChildren } from "../../app/store/UserThunks.js";
+import { ShowAllHelpedChildren, ShowAllNeedHelpChildren, updateUserLeftMoney } from "../../app/store/UserThunks.js";
 import ButtonWantToHelp from "../ButtonWantToHelp/ButtonWantToHelp.jsx";
 
 const ChildDetailsPage = () => {
@@ -16,11 +16,11 @@ const ChildDetailsPage = () => {
         const fetchData = async () => {
             try {
                 const actionResult1 = await dispatch(ShowAllNeedHelpChildren());
-                const actionResult2=await  dispatch(ShowAllHelpedChildren());
+                const actionResult2 = await dispatch(ShowAllHelpedChildren());
 
                 const selectedChild1 = actionResult1.payload.find(child => child.id === id);
                 const selectedChild2 = actionResult2.payload.find(child => child.id === id);
-                setChild(!selectedChild1 ? selectedChild2 :selectedChild1);
+                setChild(!selectedChild1 ? selectedChild2 : selectedChild1);
             } catch (error) {
                 console.error('Ошибка при загрузке данных о детях:', error);
             }
@@ -29,6 +29,20 @@ const ChildDetailsPage = () => {
         fetchData();
 
     }, [dispatch, id]);
+
+    const handlePayment = async (amount) => {
+        try {
+            if (child) {
+                const updatedLeftMoney = parseFloat(child.leftMoney) + parseFloat(amount);
+                await dispatch(updateUserLeftMoney({ userId: child.id, updatedMoney: updatedLeftMoney }));
+
+                setChild({ ...child, leftMoney: updatedLeftMoney });
+                console.log('Оплата суммы:', amount);
+            }
+        } catch (error) {
+            console.error('Ошибка при оплате:', error);
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -52,6 +66,7 @@ const ChildDetailsPage = () => {
                                         <Typography>Диагноз: {child.diagnosis}</Typography>
                                         <Typography>Необходимая сумма: {child.needMoney}</Typography>
                                         <Typography>Оставшаяся сумма: {child.leftMoney}</Typography>
+                                        <ButtonWantToHelp onPayment={handlePayment} child={child} />
                                     </Grid>
                                     <Grid item xs={12} md={6}>
                                         {child.image && (
@@ -59,7 +74,6 @@ const ChildDetailsPage = () => {
                                         )}
                                     </Grid>
                                 </Grid>
-                                <ButtonWantToHelp/>
                             </CardContent>
 
                         </Card>
