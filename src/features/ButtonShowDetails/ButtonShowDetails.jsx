@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from "@mui/material/Button";
 import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import ButtonWantToHelp from "../../widgets/ButtonWantToHelp/ButtonWantToHelp.jsx";
 
 const ButtonShowDetails = ({ child }) => {
     return (
@@ -25,10 +23,8 @@ const ButtonShowDetails = ({ child }) => {
                             </Typography>
                         </CardContent>
                     </Card>
-
                 </Link>
-
-                )}
+            )}
         </div>
     );
 };

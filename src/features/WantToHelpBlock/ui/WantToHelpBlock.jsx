@@ -17,9 +17,8 @@ const WantToHelpBlock = () => {
     const selectedUser = useSelector(state => state.users.selectedUser);
     const totalMoney = useSelector(state => state.users.totalMoney);
     const collectedMoney = useSelector(state => state.users.collectedMoney);
-    const [email, setEmail] = useState('');
-    const [customAmount, setCustomAmount] = useState(0); // Добавляем customAmount в состояние
-    const [amount, setAmount] = useState(0); // Добавляем amount в состояние
+    const [customAmount, setCustomAmount] = useState(0);
+    const [amount, setAmount] = useState(0);
     useEffect(() => {
         dispatch(fetchUsersData());
     }, [dispatch]);

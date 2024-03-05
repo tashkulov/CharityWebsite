@@ -5,7 +5,7 @@ import NavBarForAllSite from "../../entities/NavBar/NavBarForAllSite.jsx";
 import styles from '../ShowHelpedChildren/style.module.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { ShowAllHelpedChildren, ShowAllNeedHelpChildren } from "../../app/store/UserThunks.js";
-import ButtonWantToHelp from "../../widgets/ButtonWantToHelp/ButtonWantToHelp.jsx";
+import ButtonWantToHelp from "../ButtonWantToHelp/ButtonWantToHelp.jsx";
 
 const ChildDetailsPage = () => {
     const dispatch = useDispatch();
@@ -59,13 +59,17 @@ const ChildDetailsPage = () => {
                                         )}
                                     </Grid>
                                 </Grid>
+                                <ButtonWantToHelp/>
                             </CardContent>
 
                         </Card>
 
                     </Grid>
+
                 </Grid>
+
             )}
+
         </div>
     );
 };
