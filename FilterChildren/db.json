@@ -16,19 +16,19 @@
       "image": "https://i.pinimg.com/564x/04/93/ce/0493ce55d30d6fdb183170f934d11416.jpg"
     },
     {
-      "id": "d221f7b1-6a60-42ac-b48f-660b6cf72b90",
-      "firstName": "Аяна",
-      "lastName": "Сагынбекова",
-      "age": "21",
-      "state": "Кз",
+      "id": "c152b58c-3cf6-4ccb-8a4b-2e58dcef8e70",
+      "firstName": "Nadira",
+      "lastName": "Sulaimanova",
+      "age": "23",
+      "state": "rger",
       "city": "Bishkek",
       "street": "Tynystanova, 8A/31",
       "zip": "720085",
       "needed": "targetedTherapy",
-      "diagnosis": "Cardiology",
-      "needMoney": "40000",
-      "leftMoney": 1000,
-      "image": "https://i.pinimg.com/564x/c1/6d/d5/c16dd50bd22c38b41f6d11a140ee9c30.jpg"
+      "diagnosis": "Dota2",
+      "needMoney": "22000",
+      "leftMoney": 2000,
+      "image": "https://i.pinimg.com/564x/41/e0/33/41e0330ac7d732882c90e4fcace8a949.jpg"
     }
   ],
   "helped": [
@@ -136,6 +136,36 @@
       "needMoney": "6000",
       "leftMoney": 6000,
       "image": "https://i.pinimg.com/736x/f2/aa/ce/f2aace95fdf652879686a38f13978745.jpg"
+    },
+    {
+      "id": "d221f7b1-6a60-42ac-b48f-660b6cf72b90",
+      "firstName": "Аяна",
+      "lastName": "Сагынбекова",
+      "age": "21",
+      "state": "Кз",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "targetedTherapy",
+      "diagnosis": "Cardiology",
+      "needMoney": "40000",
+      "leftMoney": 40000,
+      "image": "https://i.pinimg.com/564x/c1/6d/d5/c16dd50bd22c38b41f6d11a140ee9c30.jpg"
+    },
+    {
+      "id": "d221f7b1-6a60-42ac-b48f-660b6cf72b90",
+      "firstName": "Аяна",
+      "lastName": "Сагынбекова",
+      "age": "21",
+      "state": "Кз",
+      "city": "Bishkek",
+      "street": "Tynystanova, 8A/31",
+      "zip": "720085",
+      "needed": "targetedTherapy",
+      "diagnosis": "Cardiology",
+      "needMoney": "40000",
+      "leftMoney": 40000,
+      "image": "https://i.pinimg.com/564x/c1/6d/d5/c16dd50bd22c38b41f6d11a140ee9c30.jpg"
     }
   ]
 }
